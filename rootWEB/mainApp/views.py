@@ -1,3 +1,8 @@
+import os
+import requests
+from django.conf import settings
+from dotenv import load_dotenv
+
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .models import *
@@ -34,6 +39,23 @@ def join(request) :
     print('debug >>> mainApp /join')
     return render(request, 'mainpage/join.html')
 
+
 def toNaverMap(request):
     print('debug >>> mainApp /toNaverMap')
-    return render(request, 'mainpage/toNaverMap.html')
+
+    # Fetch the client_id from environment variables
+    client_id = settings.api_key_id
+
+    print(client_id)
+
+    # Check if the client_id is retrieved correctly
+    if not client_id:
+        print("debug >>> Client ID not found in environment")
+        # Handle the error appropriately
+        return render(request, 'error.html', {'error': 'Client ID not found'})
+
+    context = {
+        'client_id': client_id
+    }
+
+    return render(request, 'mainpage/toNaverMap.html', context)
