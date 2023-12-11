@@ -33,3 +33,7 @@ def login(request) :
 def join(request) :
     print('debug >>> mainApp /join')
     return render(request, 'mainpage/join.html')
+
+def toNaverMap(request):
+    print('debug >>> mainApp /toNaverMap')
+    return render(request, 'mainpage/toNaverMap.html')
