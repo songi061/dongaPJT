@@ -10,6 +10,7 @@ urlpatterns = [
     path("my/", views.my),
     path("login/", views.login),
     path("join/", views.join),
+    path("naverMap/", views.naverMap)
 ]
 
 
