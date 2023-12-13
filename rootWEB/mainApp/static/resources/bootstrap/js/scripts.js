@@ -6,6 +6,9 @@
 //
 // Scripts
 // 
+AOS.init({
+  duration: 1200,
+})
 
 window.addEventListener('DOMContentLoaded', event => {
 
