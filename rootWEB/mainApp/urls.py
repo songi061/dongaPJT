@@ -10,6 +10,9 @@ urlpatterns = [
     path("my/", views.my),
     path("login/", views.login),
     path("join/", views.join),
+    path("upload/", views.upload),
+
 ]
+
 
 
