@@ -68,6 +68,6 @@ def upload(request) :
     guess = pre_train_model.predict(img)
     labels = ['양호', '경증 비듬', '중등도 비듬', '중증 비듬', '경증 탈모', '중등도 탈모', '중증 탈모']
     predicted_label = labels[np.argmax(guess)]
-    return render(request, 'mainpage/scalp.html', {'predicted_label': predicted_label})
+    return render(request, 'mainpage/scalp.html', {'predicted_label': predicted_label, 'fileName' : fileName})
 
 
