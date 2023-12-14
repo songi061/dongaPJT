@@ -10,6 +10,33 @@
             <p>Bootstrap v5.2.3</p>
         </div>
     </div>
+
+
+
+    <div class="container">
+    <h5>두피 사진 등록</h5>
+    <form method="post"
+          class="post-form my-3"
+          enctype="multipart/form-data"
+          action = '../upload/'>
+        {% csrf_token %}
+    	<div>
+            <label for="imgfile">이미지 : </label>
+            <input type="file" class="form-control" name="image" id="imgfile">
+        </div>
+        <div>
+            <input type="submit" value="업로드" />
+        </div>
+
+        <hr>
+        <div>
+            당신의 두피 상태는 {{predicted_label}} 입니다.
+        </div>
+    </form>
+
+
+
+
 </body>
 
 
