@@ -1,3 +1,5 @@
+{% include 'header.html' %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,27 +7,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>간단한 지도 표시하기</title>
-    <!-- Import the Naver Maps API script once with the correct client_id -->
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId={{ client_id }}"></script>
 </head>
-<body>
-    <div class="container">
-        <section class="section" id="section-3">
-            <h1>근처 미용실과 피부과</h1>
-            <!-- Unique id for this map container -->
-            <div id="custom-map" style="width: 70%; height: 300px; margin:auto"></div>
-        </section>
-    </div>
 
+<body style="display: center; justify-content: center; align-items: center; height: 100vh;">
+    <div id="map" style="width:80%; height:400px; margin: 0 auto;"></div>
     <script>
-        // Initialize the map with specific options
-        var customMapOptions = {
-            center: new naver.maps.LatLng(37.3595704, 127.105399),
-            zoom: 10
-        };
+        var map = new naver.maps.Map('map', {
+            center: new naver.maps.LatLng(37.5112, 127.0981), // 잠실 롯데월드를 중심으로 하는 지도
+            zoom: 15
+        });
 
-        // Use the unique id for the map
-        var customMap = new naver.maps.Map('custom-map', customMapOptions);
+        var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(37.5112, 127.0981),
+            map: map
+        });
     </script>
 </body>
+
 </html>
+
+{% include 'footer.html' %}

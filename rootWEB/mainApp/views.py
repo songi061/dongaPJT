@@ -40,17 +40,21 @@ def join(request) :
     return render(request, 'mainpage/join.html')
 
 
-def toNaverMap(request):
-    print('debug >>> mainApp /toNaverMap')
+import os
+from dotenv import load_dotenv
+
+def toNaverMap(request) :
+    print('debug >> mainApp /toNaverMap')
+
+    # Load environment variables from env file
+    load_dotenv()
 
     # Fetch the client_id from environment variables
-    client_id = settings.api_key_id
-
-    print(client_id)
+    client_id = os.getenv('X-NCP-APIGW-API-KEY-ID')
 
     # Check if the client_id is retrieved correctly
     if not client_id:
-        print("debug >>> Client ID not found in environment")
+        print ("debug >>> Client ID not found in environment")
         # Handle the error appropriately
         return render(request, 'error.html', {'error': 'Client ID not found'})
 
@@ -58,4 +62,4 @@ def toNaverMap(request):
         'client_id': client_id
     }
 
-    return render(request, 'mainpage/toNaverMap.html', context)
+    return render(request,  'mainpage/toNaverMap.html', context)
